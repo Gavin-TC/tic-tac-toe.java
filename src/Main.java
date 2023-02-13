@@ -25,16 +25,15 @@ public class Main {
 
         b.draw_board(map);
         do {
-//            System.out.println("\\033[H\\033[2J");
-//            System.out.flush();
             System.out.println("Pick a number:");
             do {
                 turn = scanner.nextInt(); // take the players input
-                b.pick_spot(turn, player_team); // pick spot, then pick spot automatically checks for a win
-                b.draw_board(map); // draw the board to the terminal
+                b.pick_spot(turn, player_team); // pick spot
+                b.check_win(player_team);
             } while (b.invalid_spot);
-            //cpu.play(b, map); // the cpu will now take its turn
-            // now the code can simply repeat
+            cpu.play(b, map);
+            b.check_win(cpu_team);
+            b.draw_board(map);
         } while (game_running);
     }
 }

@@ -53,7 +53,7 @@ public class Board {
             System.out.println("That spot is invalid.");
         }
     }
-    static void check_win(String team) {
+    public static void check_win(String team) {
         int[] diagonal_win; // diagonal/horizontal/vertical win conditions
         int[] hor_win;
         int[] ver_win;

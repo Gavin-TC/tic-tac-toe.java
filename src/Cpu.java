@@ -1,11 +1,24 @@
+import java.util.Random;
+
 public class Cpu {
-    //Board b = new Board();
+    static String[] pos_spots = {
+            " "
+    };
+
     public void play(Board b, String[] board) {
-        for (int i = 1; i < board.length+1; i++) {
-            if (board[i] != "X" || board[i] != "O") {
-                b.pick_spot(i, Main.cpu_team);
-                break;
-            }
-        }
+        int spot = new Random().nextInt(board.length+1);
+
+//        for (int i = 0; i < board.length; i++) {
+//            if (board[i] == "X" || board[i] == "O") {
+//
+//            }
+//        }
+
+        do {
+            spot = new Random().nextInt(board.length+1);
+        } while(board[spot] == "X" || board[spot] == "O");
+
+        b.pick_spot(spot, Main.cpu_team);
+        System.out.println("CPU plays " + spot + ".");
     }
 }
