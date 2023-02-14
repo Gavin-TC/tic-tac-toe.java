@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Random;
 
 public class Board {
@@ -43,10 +44,10 @@ public class Board {
 //        System.out.println("spot string == " + spot_string);
 //        System.out.println("true spot == " + Main.map[true_spot]);
 
-        if (Main.map[true_spot] != "X" && Main.map[true_spot] != "O") { // if the spot is == to a int spot (not a letter) then place it
+        if (!Objects.equals(Main.map[true_spot], "X") && !Objects.equals(Main.map[true_spot], "O")) { // if the spot is == to int spot (not a letter) then place it
 //            System.out.println("THE SPOT IS AVAILABLE");
             invalid_spot = false;
-            Main.map[spot-1] = team;
+            Main.map[true_spot] = team;
             check_win(team);
         } else {
             invalid_spot = true;

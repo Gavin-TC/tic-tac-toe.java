@@ -5,20 +5,14 @@ public class Cpu {
             " "
     };
 
-    public void play(Board b, String[] board) {
-        int spot = new Random().nextInt(board.length+1);
+    public void play(Board b, String[] map) {
+        int spot = new Random().nextInt(map.length);
 
-//        for (int i = 0; i < board.length; i++) {
-//            if (board[i] == "X" || board[i] == "O") {
-//
-//            }
-//        }
-
-        do {
-            spot = new Random().nextInt(board.length+1);
-        } while(board[spot] == "X" || board[spot] == "O");
-
-        b.pick_spot(spot, Main.cpu_team);
+        for (int i = 0; i < map.length; i++) {
+            if (map[i] != "X" || map[i] != "O") {
+                b.pick_spot(spot, Main.cpu_team);
+            }
+        }
         System.out.println("CPU plays " + spot + ".");
     }
 }

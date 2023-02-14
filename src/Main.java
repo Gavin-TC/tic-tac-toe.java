@@ -27,7 +27,12 @@ public class Main {
         do {
             System.out.println("Pick a number:");
             do {
-                turn = scanner.nextInt(); // take the players input
+                try {
+                    turn = scanner.nextInt(); // take the players input
+                }
+                catch (Exception e) {
+                    System.out.println("There was an error: " + e);
+                }
                 b.pick_spot(turn, player_team); // pick spot
                 b.check_win(player_team);
             } while (b.invalid_spot);
